@@ -557,6 +557,12 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
 
+  // Height of Screen
+  var screenHeight = window.screen.height;
+  var numberOfRows = screenHeight/s;
+  // Calculate maximal Rows of Pizza displayed on this screen
+  var maxPizzaElements = numberOfRows * cols;
+
   var elem = document.createElement('img');
 
   // Declared repeating attributes outside loop
@@ -568,12 +574,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Changed querySelectorAll to more specified getElementById
   var movingPizzas = document.getElementById('movingPizzas1');
 
-  for (var i = 0; i < 200; i++) {
-    // to use variable with attributes which are already defined outside this loop
+  // Loop with calulated maxium of pizza displayed on screen
+  for (var i = 0; i < maxPizzaElements; i++) {
+    // to use elem with attributes which are already defined outside this loop
     elem = elem.cloneNode(true);
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    
     movingPizzas.appendChild(elem);
   }
   updatePositions();
