@@ -406,13 +406,19 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.querySelector("#pizzaSize").innerHTML = "Extrem Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.querySelector("#pizzaSize").innerHTML = "Small";
         return;
       case "3":
+        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        return;
+      case "4":
         document.querySelector("#pizzaSize").innerHTML = "Large";
+        return;
+      case "5":
+        document.querySelector("#pizzaSize").innerHTML = "Extrem Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -427,16 +433,19 @@ var resizePizzas = function(size) {
     var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
     var oldsize = oldwidth / windowwidth;
 
-    // TODO: change to 3 sizes? no more xl?
     // Changes the slider value to a percent width
     function sizeSwitcher (size) {
       switch(size) {
         case "1":
-          return 0.25;
+          return 0.20;
         case "2":
-          return 0.3333;
+          return 0.25;
         case "3":
-          return 0.5;
+          return 0.33;
+        case "4":
+          return 0.40;
+        case "5":
+          return 0.50;
         default:
           console.log("bug in sizeSwitcher");
       }
@@ -452,10 +461,10 @@ var resizePizzas = function(size) {
   function changePizzaSizes(size) {
 
     var randomPizzaContainerSelector = document.querySelectorAll(".randomPizzaContainer");
+    var dx = determineDx(randomPizzaContainerSelector[0], size);
+    var newwidth = (randomPizzaContainerSelector[0].offsetWidth + dx) + 'px'; 
 	
     for (var i = 0; i < randomPizzaContainerSelector.length; i++) {
-      var dx = determineDx(randomPizzaContainerSelector[i], size);
-      var newwidth = (randomPizzaContainerSelector[i].offsetWidth + dx) + 'px';
       randomPizzaContainerSelector[i].style.width = newwidth;
     }
   }
