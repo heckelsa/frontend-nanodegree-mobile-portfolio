@@ -15,7 +15,10 @@ Part 2:
 
 Running the Page http://heckelsa.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html inside Google Chrome.
 
-* Removed Declarations from Loops
-* Extended Pizza Size Selection
+* Removed Declarations from Loops, which stayed the same inside the loop. Since they didn't change it's better to declare them once outside and not declare them new every turn of the loop.
+* Extended Pizza Size Selection (+ Extra Small, + Extra Large)
+* Changed "querySelectorAll" to "getElementById" or "getElementsByClassName" since these are more specific and more performant.
+* Compressed background Pizza display to load only the number of pizzas needed to fill up the screen of the specific user. 
+
 
 
